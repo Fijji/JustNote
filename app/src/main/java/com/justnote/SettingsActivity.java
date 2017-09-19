@@ -1,18 +1,27 @@
 package com.justnote;
 
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
+import android.preference.PreferenceFragment;
 
+/**
+ * SettingsActivity - preference activity
+ * @author Kyryl Potapenko
+ * @since 2017-01-03
+ */
 public class SettingsActivity extends PreferenceActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // загружаем предпочтения из ресурсов
-        addPreferencesFromResource(R.xml.preferences);
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
     }
 
+    public static class MyPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(final Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preferences);
+        }
+    }
 }

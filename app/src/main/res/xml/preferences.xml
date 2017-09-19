@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference
-            android:key="@string/pref_openmode"
-            android:summary="Открывать файл при запуске приложения"
-            android:title="Открыть" />
     <EditTextPreference
             android:defaultValue="14"
-            android:dialogTitle="Введите размер шрифта (от 10 до 32)"
+            android:dialogTitle="Put the text size here (from 10 to 32)"
             android:key="@string/pref_size"
-            android:summary="Устанавливает новый размер шрифта"
-            android:title="Размер шрифта" />
+            android:inputType="number"
+            android:summary="@string/pref_desc"
+            android:title="Text size"/>
+    <EditTextPreference
+            android:dialogMessage="JustNote - just for notes.VER.1.0.
+                                 @author Kyryl Potapenko
+                                 kpotapenko@yahoo.com"
+            android:focusable="false"
+            android:inputType="none"
+            android:summary="Details"
+            android:title="About app"/>
 </PreferenceScreen>
